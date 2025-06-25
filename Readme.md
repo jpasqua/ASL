@@ -9,6 +9,8 @@ from another node. This script has been tested with ASL3 on Raspberry Pi.
 usage: pushover_notify.sh [CONNECT|DISCONNECT] MyNodeNumber TheirNodeNumber
 ```
 
+For a script with much richer and more detailed messages, check out [this script](https://github.com/hamassassin/AmateurRadio/tree/main/AllStarLink/Notifications) by [N1SK](https://github.com/hamassassin). It provides lots of good info and links. Since I mostly view notifications on my watch, I opted for shorter messages.
+
 ### Prerequisites:
 
 1. You'll need to create a free Pushover account and create an application
