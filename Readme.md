@@ -14,8 +14,13 @@ usage: pushover_notify.sh [CONNECT|DISCONNECT] MyNodeNumber TheirNodeNumber
 
 ### Prerequisites:
 
-1. You'll need to create a free Pushover account and create an application
-   key. You will use your app key and user token below.
+1. You'll need to create a free [Pushover](https://pushover.net/) account, and
+   you'll need to create an application key. You will use your app key and user
+   token below.
+   
+   **NOTE** that as 2025-06-25 there is a one-time $5 charge per platform to
+   receive pushover notifications. There is no charge to send them up to
+   10,000 notifications/month.
 2. Create a file named pushover.ini with your user key app token.
    Example content of pushover.ini:
    
