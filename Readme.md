@@ -1,0 +1,65 @@
+# Allstar Related Utilities and Files
+
+## Pushover Notification Support
+
+The `pushover_notify.sh` script is used to send a [Pushover](https://pushover.net/) notification when your [AllStarLink](https://allstarlink.org/) node  connects or disconnects
+from another node.
+
+```
+usage: pushover_notify.sh [CONNECT|DISCONNECT] MyNodeNumber TheirNodeNumber
+```
+
+### Prerequisites:
+
+1. You'll need to create a free Pushover account and create an application
+   key. You will use your app key and user token below.
+2. Create a file named pushover.ini with your user key app token.
+   Example content of pushover.ini:
+   
+   ```
+       APP_TOKEN="MY_APP_TOKEN_HERE"
+       USER_KEY="MY_USER_KEY_HERE"
+   ```
+3. This script relies on `jq` (JSON processor). Be sure it is installed:
+   ```
+       sudo apt install jq
+   ```
+   
+### Installing the files:
+1. Place both this script and the pushover.ini file you created into
+   `/etc/asterisk/scripts`
+2. Give them the correct ownership and permissions:
+
+   ```
+       sudo chown root:asterisk /etc/asterisk/scripts/pushover_notify.sh
+       sudo chmod 750 /etc/asterisk/scripts/pushover_notify.sh
+       sudo chown root:asterisk /etc/asterisk/scripts/pushover.ini
+       sudo chmod 640 /etc/asterisk/scripts/pushover.ini
+   ```
+   
+### Preparing your ASL3 installation
+1. You'll need to update your `/etc/asterisk/rpt.conf` file with the following
+   lines. Look for the references to `connpgm` & `discpgm` which are commented
+   out, and add these lines there:
+   
+   ```
+       connpgm=/etc/asterisk/scripts/pushover_notify.sh CONNECT
+       discpgm=/etc/asterisk/scripts/pushover_notify.sh DISCONNECT
+   ```
+   
+2. Restart asterisk:
+   
+   ```
+       sudo systemctl restart asterisk
+   ```
+
+### Testing
+1. You can test the script manually with the commands:
+
+   ```
+       sudo /etc/asterisk/scripts/pushover_notify.sh CONNECTED 65237 60216
+       sudo /etc/asterisk/scripts/pushover_notify.sh DISCONNECTED 65237 60216
+   ```
+   The node numbers aren't important for this test. They are just examples.
+2. Try it live. After restarting asterisk, connect to a node, then disconnect
+   You should get two Pushover notifications - one for each action.
