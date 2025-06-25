@@ -1,9 +1,9 @@
 # Allstar Related Utilities and Files
 
-## Pushover Notification Support
+## Pushover Notification Support for ASL3
 
 The `pushover_notify.sh` script is used to send a [Pushover](https://pushover.net/) notification when your [AllStarLink](https://allstarlink.org/) node  connects or disconnects
-from another node.
+from another node. This script has been tested with ASL3 on Raspberry Pi.
 
 ```
 usage: pushover_notify.sh [CONNECT|DISCONNECT] MyNodeNumber TheirNodeNumber
