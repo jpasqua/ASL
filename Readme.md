@@ -34,7 +34,7 @@ usage: pushover_notify.sh [CONNECT|DISCONNECT] MyNodeNumber TheirNodeNumber
    ```
    
 ### Installing the files:
-1. Place `pushover_notify.sh` and the `pushover.ini` file you created earlier into
+1. Place `pushover_notify.sh` and `pushover.ini` (the file you created earlier) into
    `/etc/asterisk/scripts`
 2. Give them the correct ownership and permissions:
 
