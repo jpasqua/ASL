@@ -19,10 +19,10 @@ usage: pushover_notify.sh [CONNECT|DISCONNECT] MyNodeNumber TheirNodeNumber
    token below.
    
    **NOTE** that as 2025-06-25 there is a one-time $5 charge per platform to
-   receive pushover notifications. There is no charge to send them up to
+   receive pushover notifications. There is no charge to send up to
    10,000 notifications/month.
-2. Create a file named pushover.ini with your user key app token.
-   Example content of pushover.ini:
+2. Create a file named `pushover.ini` with your user key app token.
+   Example content of `pushover.ini`:
    
    ```
        APP_TOKEN="MY_APP_TOKEN_HERE"
@@ -34,7 +34,7 @@ usage: pushover_notify.sh [CONNECT|DISCONNECT] MyNodeNumber TheirNodeNumber
    ```
    
 ### Installing the files:
-1. Place both this script and the pushover.ini file you created into
+1. Place `pushover_notify.sh` and the `pushover.ini` file you created earlier into
    `/etc/asterisk/scripts`
 2. Give them the correct ownership and permissions:
 
@@ -69,5 +69,5 @@ usage: pushover_notify.sh [CONNECT|DISCONNECT] MyNodeNumber TheirNodeNumber
        sudo /etc/asterisk/scripts/pushover_notify.sh DISCONNECTED 65237 60216
    ```
    The node numbers aren't important for this test. They are just examples.
-2. Try it live. After restarting asterisk, connect to a node, then disconnect
+2. Try it live. After restarting asterisk, connect to a node, then disconnect.
    You should get two Pushover notifications - one for each action.
